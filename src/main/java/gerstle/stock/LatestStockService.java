@@ -10,6 +10,6 @@ import java.net.http.HttpResponse;
 public interface LatestStockService
 {
     @Headers({"x-rapidapi-key: 3d3bec4cf6msh5e70c5761ec73d4p1df9e5jsne9a9941276b6", "x-rapidapi-host: latest-stock-price.p.rapidapi.com"})
-    @GET("3d3bec4cf6msh5e70c5761ec73d4p1df9e5jsne9a9941276b6")
-    Single<LatestStockFeed> getStockPrice();
+    @GET("price?Indices=ADANIGREEN")
+    Single<LatestStockFeed> getPrice();
 }

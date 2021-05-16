@@ -13,8 +13,8 @@ public class LatestStockController
 
     public void initialize()
     {
-        String stock = "APPL";
-        Disposable disposable = service.getStockPrice()
+        String stock = "ADANIGREEN";
+        Disposable disposable = service.getPrice()
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.trampoline())
                 .subscribe(this::onStockPriceAverage, this::onError);

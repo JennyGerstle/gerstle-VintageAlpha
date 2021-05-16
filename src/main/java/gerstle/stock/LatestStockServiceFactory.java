@@ -19,7 +19,7 @@ public class LatestStockServiceFactory
     public LatestStockService newInstance()
     {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://rapidapi.com/suneetk92/api/latest-stock-price/")
+                .baseUrl("https://latest-stock-price.p.rapidapi.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .build();
