@@ -1,1 +1,1 @@
-Takes the data from rapid api Latest stock, https://rapidapi.com/suneetk92/api/latest-stock-price.
+Takes the data from api Vintage Alpha, https://www.alphavantage.co/
