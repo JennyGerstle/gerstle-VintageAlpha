@@ -1,17 +1,20 @@
 package gerstle.vintage;
 
 import java.util.List;
+import java.util.Map;
 
 public class AlphaVintageFeed
 {
-    List<MonthlyTimeSeries> monthly;
+    Map<String, MonthlyTimeSeries.MonthlyDate> monthly;
     static class MonthlyTimeSeries
     {
-        double open;
-        double high;
-        double low;
-        double close;
-        double volume;
-
+        static class MonthlyDate
+        {
+            double open;
+            double high;
+            double low;
+            double close;
+            double volume;
+        }
     }
 }

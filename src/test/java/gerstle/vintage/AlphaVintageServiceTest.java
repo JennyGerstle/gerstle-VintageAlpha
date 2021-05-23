@@ -18,6 +18,5 @@ public class AlphaVintageServiceTest
 
         //then
         assertNotNull(feed);
-
     }
 }

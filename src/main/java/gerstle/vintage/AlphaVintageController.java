@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class AlphaVintageController
@@ -38,7 +39,7 @@ public class AlphaVintageController
 
     private void onStockPriceAverageRunL(AlphaVintageFeed feed)
     {
-       Label1.setText(feed.monthly.get(0).volume + "");
+       Label1.setText(feed.monthly.get("2021-04-30") + "");
     }
     public void onError(Throwable throwable)
     {
