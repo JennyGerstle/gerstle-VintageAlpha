@@ -1,20 +1,23 @@
 package gerstle.vintage;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
+import com.google.gson.annotations.SerializedName;
 
-public class AlphaVintageFeed
+public class AlphaVintageFeed implements Serializable
 {
-    Map<String, MonthlyTimeSeries.MonthlyDate> monthly;
+    @SerializedName("Monthly Time Series")
+    Map<String, MonthlyTimeSeries> MonthlyTimeSeries;
+
+
     static class MonthlyTimeSeries
     {
-        static class MonthlyDate
-        {
-            double open;
-            double high;
-            double low;
-            double close;
-            double volume;
-        }
+        double open;
+        double high;
+        double low;
+        double close;
+        double volume;
+
     }
 }

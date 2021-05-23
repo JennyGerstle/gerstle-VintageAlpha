@@ -39,7 +39,8 @@ public class AlphaVintageController
 
     private void onStockPriceAverageRunL(AlphaVintageFeed feed)
     {
-       Label1.setText(feed.monthly.get("2021-04-30") + "");
+       Label1.setText(feed.MonthlyTimeSeries.get(0).volume +"");
+       //feed.MonthlyTimeSeries.monthly.get("2021-04-30") + ""
     }
     public void onError(Throwable throwable)
     {
