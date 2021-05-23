@@ -1,4 +1,4 @@
-package gerstle.stock;
+package gerstle.vintage;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -6,15 +6,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class LatestStockApplication extends Application
+public class AlphaVintageApplication extends Application
 {
     @Override
     public void start(Stage stage) throws Exception {
 
-        LatestStockService service = new LatestStockServiceFactory().newInstance();
-        LatestStockController controller = new LatestStockController(service);
+        AlphaVintageService service = new AlphaVintageServiceFactory().newInstance();
+        AlphaVintageController controller = new AlphaVintageController(service);
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/LatestStock.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/AlphaVintage.fxml"));
         loader.setController(controller);
 
         Parent parent = loader.load();

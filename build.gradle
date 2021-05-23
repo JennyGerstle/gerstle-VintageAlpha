@@ -5,7 +5,7 @@ plugins {
 apply plugin: 'java'
 apply plugin: 'application'
 
-mainClassName = 'gerstle.stock.LatestStockApplication'
+mainClassName = 'gerstle.vintage.AlphaVintageApplication'
 
 repositories {
     mavenCentral()
