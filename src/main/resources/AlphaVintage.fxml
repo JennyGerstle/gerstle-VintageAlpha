@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.control.Label?>
-<?import java.util.ArrayList?>
-<GridPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <Label fx:id="Label1" text=""/>
-    <Label fx:id="hi2" text=""/>
 
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <Label fx:id="Label1" text="" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+    <Label fx:id="hi2" text="" GridPane.columnIndex="8" GridPane.rowIndex="5" />
+   <LineChart fx:id="chart">
+     <xAxis>
+       <CategoryAxis side="BOTTOM" />
+     </xAxis>
+     <yAxis>
+       <NumberAxis side="LEFT"/>
+     </yAxis>
+   </LineChart>
 </GridPane>

@@ -4,6 +4,9 @@ import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 
 import java.util.ArrayList;
@@ -14,7 +17,13 @@ public class AlphaVintageController
 {
     @FXML
     Label Label1;
+    @FXML
+    Label labelTimePeriod;
+    @FXML
+    LineChart chart;
+
     AlphaVintageService service;
+
     public AlphaVintageController(AlphaVintageService service)
     {
         this.service = service;
@@ -27,11 +36,14 @@ public class AlphaVintageController
                 .observeOn(Schedulers.trampoline())
                 .subscribe(this::onStockPriceAverage, this::onError);
     }
+
     private void onStockPriceAverage(AlphaVintageFeed feed)
     {
-        Platform.runLater(new Runnable() {
+        Platform.runLater(new Runnable()
+        {
             @Override
-            public void run() {
+            public void run()
+            {
                 onStockPriceAverageRunL(feed);
             }
         });
@@ -39,14 +51,30 @@ public class AlphaVintageController
 
     private void onStockPriceAverageRunL(AlphaVintageFeed feed)
     {
-       Label1.setText( "" + feed.MonthlyTimeSeries.get("2021-03-31").open);
-       //feed.MonthlyTimeSeries.monthly.get("2021-04-30") + ""
+        String[] sKeys = feed.MonthlyTimeSeries.keySet().toArray(new String[0]);
+        Label1.setText("" + feed.MonthlyTimeSeries.get(sKeys[0]).close);
+        setGraph(feed, sKeys);
     }
+
     public void onError(Throwable throwable)
     {
         // bad but better
         throwable.printStackTrace();
     }
 
+    private void setGraph(AlphaVintageFeed feed, String[] sKeys)
+    {
+        //Integer.parseInt(labelTimePeriod.getText());
+        int timeGiven = 3;
+        XYChart.Series series = new XYChart.Series();
+        for (int points = 0; points < timeGiven; ++points)
+        {
+            int iX;
+            double dY;
+            iX = points;
+            dY = feed.MonthlyTimeSeries.get(sKeys[points]).close;
+            series.getData().add(new XYChart.Data(iX, dY));
+        }
+    }
 
 }
