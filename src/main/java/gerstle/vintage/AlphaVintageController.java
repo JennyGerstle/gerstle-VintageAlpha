@@ -22,7 +22,7 @@ public class AlphaVintageController
 
     public void initialize()
     {
-        Disposable disposable = service.getMonthly("IBM")
+        Disposable disposable = service.getMonthly()
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.trampoline())
                 .subscribe(this::onStockPriceAverage, this::onError);
@@ -39,7 +39,7 @@ public class AlphaVintageController
 
     private void onStockPriceAverageRunL(AlphaVintageFeed feed)
     {
-       Label1.setText(feed.MonthlyTimeSeries.get(0).volume +"");
+       Label1.setText( "" + feed.MonthlyTimeSeries.get("2021-03-31").open);
        //feed.MonthlyTimeSeries.monthly.get("2021-04-30") + ""
     }
     public void onError(Throwable throwable)

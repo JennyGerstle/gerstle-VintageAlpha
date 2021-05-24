@@ -18,6 +18,5 @@ public class AlphaVintageFeed implements Serializable
         double low;
         double close;
         double volume;
-
     }
 }

@@ -6,6 +6,6 @@ import retrofit2.http.Query;
 
 public interface AlphaVintageService
 {
-    @GET("query?function=TIME_SERIES_MONTHLY&apikey=4FLLHYV9D7QKWY96")
-    Single<AlphaVintageFeed> getMonthly(@Query("q")String symbol);
+    @GET("query?function=TIME_SERIES_MONTHLY&symbol=IBM&apikey=4FLLHYV9D7QKWY96")
+    Single<AlphaVintageFeed> getMonthly();
 }
