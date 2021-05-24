@@ -27,6 +27,7 @@ public class AlphaVintageApplication extends Application
         Parent parent = loader.load();
         Scene scene = new Scene(parent, 800,600);
 
+
         Scene scene1  = new Scene(chart,800,600);
         chart.getData().add(controller.setGraph(feed, feed.sKeys));
 
