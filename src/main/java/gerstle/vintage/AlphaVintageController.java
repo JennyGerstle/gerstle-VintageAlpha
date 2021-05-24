@@ -51,7 +51,7 @@ public class AlphaVintageController
 
     private void onStockPriceAverageRunL(AlphaVintageFeed feed)
     {
-        String[] sKeys = feed.MonthlyTimeSeries.keySet().toArray(new String[0]);
+        String[] sKeys = setSKey(feed);
         Label1.setText("" + feed.MonthlyTimeSeries.get(sKeys[0]).close);
         setGraph(feed, sKeys);
     }
@@ -61,7 +61,11 @@ public class AlphaVintageController
         // bad but better
         throwable.printStackTrace();
     }
-
+    public String[] setSKey(AlphaVintageFeed feed)
+    {
+        String[] sKeys = feed.MonthlyTimeSeries.keySet().toArray(new String[0]);
+        return sKeys;
+    }
     public XYChart.Series setGraph(AlphaVintageFeed feed, String[] sKeys)
     {
         //Integer.parseInt(labelTimePeriod.getText());

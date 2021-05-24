@@ -11,7 +11,6 @@ public class AlphaVintageFeed implements Serializable
 {
     @SerializedName("Monthly Time Series")
     Map<String, MonthlyTimeSeries> MonthlyTimeSeries;
-    String[] sKeys = MonthlyTimeSeries.keySet().toArray(new String[0]);
 
     static class MonthlyTimeSeries
     {

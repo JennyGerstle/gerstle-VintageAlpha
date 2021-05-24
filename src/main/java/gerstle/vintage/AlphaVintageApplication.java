@@ -25,15 +25,15 @@ public class AlphaVintageApplication extends Application
 
 
         Parent parent = loader.load();
-        Scene scene = new Scene(parent, 800,600);
+        //Scene scene = new Scene(parent, 800,600);
 
 
         Scene scene1  = new Scene(chart,800,600);
-        chart.getData().add(controller.setGraph(feed, feed.sKeys));
+        chart.getData().add(controller.setGraph(feed, controller.setSKey(feed)));
 
 
         stage.setTitle("Stocks");
-        stage.setScene(scene);
+        stage.setScene(scene1);
         stage.show();
     }
 
