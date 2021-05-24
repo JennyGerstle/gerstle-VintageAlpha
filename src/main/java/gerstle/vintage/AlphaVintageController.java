@@ -62,7 +62,7 @@ public class AlphaVintageController
         throwable.printStackTrace();
     }
 
-    private void setGraph(AlphaVintageFeed feed, String[] sKeys)
+    public XYChart.Series setGraph(AlphaVintageFeed feed, String[] sKeys)
     {
         //Integer.parseInt(labelTimePeriod.getText());
         int timeGiven = 3;
@@ -75,6 +75,7 @@ public class AlphaVintageController
             dY = feed.MonthlyTimeSeries.get(sKeys[points]).close;
             series.getData().add(new XYChart.Data(iX, dY));
         }
+        return series;
     }
 
 }
