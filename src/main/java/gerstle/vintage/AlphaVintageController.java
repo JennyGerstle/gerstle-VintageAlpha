@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Map;
 
 
 public class AlphaVintageController
@@ -36,7 +37,7 @@ public class AlphaVintageController
         Disposable disposable = service.getMonthly()
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.trampoline())
-                .subscribe(this::onStockPriceAverageRunL, this::onError);
+                .subscribe(this::onStockPriceAverage, this::onError);
     }
 
     private void onStockPriceAverage(AlphaVintageFeed feed)
@@ -54,9 +55,17 @@ public class AlphaVintageController
     private void onStockPriceAverageRunL(AlphaVintageFeed feed)
     {
 
-        String[] sKeys =setSKey(feed);
-        ObservableList<XYChart.Series> graph = setGraph(feed, sKeys);
-        chart.setData(graph);
+        for (Map.Entry<String, AlphaVintageFeed.MonthlyTimeSeries> entry : feed.MonthlyTimeSeries.entrySet()
+             )
+        {
+            chart.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue().close));
+
+        }
+        
+        
+//        String[] sKeys =setSKey(feed);
+//        ObservableList<XYChart.Series> graph = setGraph(feed, sKeys);
+//        chart.setData(graph);
         //Label1.setText("" + feed.MonthlyTimeSeries.get(sKeys[0]).close);
     }
 
