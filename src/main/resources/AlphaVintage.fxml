@@ -19,7 +19,7 @@
             <fx:reference source="monthly" />
         </ArrayList>
     </fx:define>
-<LineChart fx:id="chart" GridPane.columnIndex="0" GridPane.rowIndex="3">
+<LineChart fx:id="chart" GridPane.columnIndex="0" GridPane.columnSpan="10" GridPane.rowIndex="3">
 <xAxis>
     <CategoryAxis side="BOTTOM" />
 </xAxis>

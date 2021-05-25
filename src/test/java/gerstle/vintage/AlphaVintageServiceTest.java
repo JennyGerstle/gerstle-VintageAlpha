@@ -15,12 +15,12 @@ public class AlphaVintageServiceTest
         AlphaVintageService service = factory.newInstance();
 
         //when
-        AlphaVintageFeed feed = service.getMonthly().blockingGet();
+        AlphaVintageMonthlyFeed feed = service.getMonthly().blockingGet();
 
         //then
         assertNotNull(feed);
         Assert.assertFalse(feed.MonthlyTimeSeries.isEmpty());
-        Assert.assertTrue(feed.MonthlyTimeSeries.get("2021-04-30").volume > -1);
+        Assert.assertTrue(feed.MonthlyTimeSeries.get() > -1);
         assertNotNull(feed.MonthlyTimeSeries);
     }
 }

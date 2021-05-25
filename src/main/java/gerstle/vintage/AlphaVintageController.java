@@ -29,14 +29,27 @@ public class AlphaVintageController
 
     public void initialize()
     {
+        if (radioBTNS.get(0).isSelected())
+        {
+            radioBTNS.get(1).setSelected(false);
+            radioBTNS.get(2).setSelected(false);
+        }
+        else if (radioBTNS.get(1).isSelected())
+        {
+            radioBTNS.get(0).setSelected(false);
+            radioBTNS.get(2).setSelected(false);
+        }
+        else
+        {
+            radioBTNS.get(1).setSelected(false);
+            radioBTNS.get(0).setSelected(false);
+        }
     }
 
     public void LoadGraph(MouseEvent mouseEvent)
     {
         if (radioBTNS.get(0).isSelected())
         {
-            radioBTNS.get(1).setSelected(false);
-            radioBTNS.get(2).setSelected(false);
             Disposable disposable = service.getDaily()
                     .subscribeOn(Schedulers.io())
                     .observeOn(Schedulers.trampoline())
@@ -44,8 +57,6 @@ public class AlphaVintageController
         }
         else if (radioBTNS.get(1).isSelected())
         {
-            radioBTNS.get(0).setSelected(false);
-            radioBTNS.get(2).setSelected(false);
             Disposable disposable = service.getWeekly()
                     .subscribeOn(Schedulers.io())
                     .observeOn(Schedulers.trampoline())
@@ -53,8 +64,6 @@ public class AlphaVintageController
         }
         else
         {
-            radioBTNS.get(1).setSelected(false);
-            radioBTNS.get(0).setSelected(false);
             AlphaVintageMonthlyFeed MFeed = new AlphaVintageMonthlyFeed();
             Disposable disposable = service.getMonthly()
                     .subscribeOn(Schedulers.io())

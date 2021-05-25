@@ -15,7 +15,4 @@ public interface AlphaVintageService
 
     @GET("query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=4FLLHYV9D7QKWY96")
     Single<AlphaVintageDailyFeed> getDaily();
-
-    @GET("query?function=TIME_SERIES_DAILY&function=SYMBOL_SEARCH&keywords=tesco&apikey=4FLLHYV9D7QKWY96")
-    Single<AlphaVintageSearchFeed> getStock();
 }
