@@ -4,8 +4,22 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<LineChart fx:id="chart" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+<?import java.util.ArrayList?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+    <Label fx:id="title" text="Stock Chart"/>
+    <TextField fx:id="stockName" text="IBM"></TextField>
+    <RadioButton fx:id="daily" text="Daily" GridPane.rowIndex="1"></RadioButton>
+    <RadioButton fx:id="weekly" text="Weekly" GridPane.rowIndex="1" GridPane.columnIndex="1"></RadioButton>
+    <RadioButton fx:id="monthly" text="Monthly" selected="true" GridPane.rowIndex="1" GridPane.columnIndex="2"></RadioButton>
+    <Button fx:id="loadGraph" onMouseClicked="#LoadGraph" text="go!" GridPane.rowIndex="1" GridPane.columnIndex="3"></Button>
+    <fx:define>
+        <ArrayList fx:id="radioBTNS">
+            <fx:reference source="daily" />
+            <fx:reference source="weekly" />
+            <fx:reference source="monthly" />
+        </ArrayList>
+    </fx:define>
+<LineChart fx:id="chart" GridPane.columnIndex="0" GridPane.rowIndex="3">
 <xAxis>
     <CategoryAxis side="BOTTOM" />
 </xAxis>
@@ -13,3 +27,5 @@
     <NumberAxis side="LEFT"/>
 </yAxis>
 </LineChart>
+</GridPane>
+

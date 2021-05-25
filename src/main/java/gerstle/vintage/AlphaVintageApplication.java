@@ -20,16 +20,14 @@ public class AlphaVintageApplication extends Application
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/AlphaVintage.fxml"));
         loader.setController(controller);
 
-
         Parent parent = loader.load();
-        //Scene scene = new Scene(parent, 800,600);
 
 
-        Scene scene1  = new Scene(controller.chart,800,600);
+        Scene scene  = new Scene(parent,1550,800);
 
 
         stage.setTitle("Stocks");
-        stage.setScene(scene1);
+        stage.setScene(scene);
         stage.show();
     }
 
