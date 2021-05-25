@@ -90,7 +90,7 @@ public class AlphaVintageController
     private void onStockPriceAverageDailyRunL(AlphaVintageDailyFeed feed)
     {
         XYChart.Series series = new XYChart.Series();
-        for (Map.Entry<String, AlphaVintageDailyFeed.DailyTimeSeries> entry : feed.DailyTimeSeries.entrySet()
+        for (Map.Entry<String, AlphaVintageDailyFeed.DailyTimeSeries> entry : feed.dailyTimeSeries.entrySet()
              )
         {
             series.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue().close));
@@ -114,7 +114,7 @@ public class AlphaVintageController
     private void onStockPriceAverageWeeklyRunL(AlphaVintageWeeklyFeed feed)
     {
         XYChart.Series series = new XYChart.Series();
-        for (Map.Entry<String, AlphaVintageWeeklyFeed.WeeklyTimeSeries> entry : feed.WeeklyTimeSeries.entrySet()
+        for (Map.Entry<String, AlphaVintageWeeklyFeed.WeeklyTimeSeries> entry : feed.weeklyTimeSeries.entrySet()
         )
         {
             series.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue().close));
@@ -138,7 +138,7 @@ public class AlphaVintageController
     private void onStockPriceAverageMonthlyRunL(AlphaVintageMonthlyFeed feed)
     {
         XYChart.Series series = new XYChart.Series();
-        for (Map.Entry<String, AlphaVintageMonthlyFeed.MonthlyTimeSeries> entry : feed.MonthlyTimeSeries.entrySet()
+        for (Map.Entry<String, AlphaVintageMonthlyFeed.MonthlyTimeSeries> entry : feed.monthlyTimeSeries.entrySet()
         )
         {
             series.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue().close));

@@ -7,10 +7,10 @@ import java.util.Map;
 import com.google.gson.annotations.SerializedName;
 import java.time.LocalDateTime;
 
-public class AlphaVintageMonthlyFeed implements Serializable
+public class AlphaVintageMonthlyFeed
 {
     @SerializedName("Monthly Time Series")
-    Map<String, MonthlyTimeSeries> MonthlyTimeSeries;
+    Map<String, MonthlyTimeSeries> monthlyTimeSeries;
 
     static class MonthlyTimeSeries
     {

@@ -23,8 +23,8 @@ public class AlphaVintageServiceTest
 
         //then
         assertNotNull(feed);
-        Assert.assertFalse(feed.MonthlyTimeSeries.isEmpty());
+        Assert.assertFalse(feed.monthlyTimeSeries.isEmpty());
         //Assert.assertTrue(feed.MonthlyTimeSeries.get() > -1);
-        assertNotNull(feed.MonthlyTimeSeries);
+        assertNotNull(feed.monthlyTimeSeries);
     }
 }

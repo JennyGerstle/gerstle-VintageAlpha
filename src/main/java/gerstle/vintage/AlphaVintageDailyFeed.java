@@ -7,7 +7,7 @@ import java.util.Map;
 public class AlphaVintageDailyFeed
 {
     @SerializedName("Time Series (Daily)")
-    Map<String, AlphaVintageDailyFeed.DailyTimeSeries> DailyTimeSeries;
+    Map<String, AlphaVintageDailyFeed.DailyTimeSeries> dailyTimeSeries;
 
     static class DailyTimeSeries
     {
