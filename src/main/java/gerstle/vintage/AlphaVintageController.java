@@ -3,6 +3,7 @@ package gerstle.vintage;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
@@ -23,6 +24,7 @@ public class AlphaVintageController
     LineChart chart;
 
     AlphaVintageService service;
+    AlphaVintageFeed feed;
 
     public AlphaVintageController(AlphaVintageService service)
     {
@@ -34,7 +36,7 @@ public class AlphaVintageController
         Disposable disposable = service.getMonthly()
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.trampoline())
-                .subscribe(this::onStockPriceAverage, this::onError);
+                .subscribe(this::onStockPriceAverageRunL, this::onError);
     }
 
     private void onStockPriceAverage(AlphaVintageFeed feed)
@@ -51,9 +53,11 @@ public class AlphaVintageController
 
     private void onStockPriceAverageRunL(AlphaVintageFeed feed)
     {
-        String[] sKeys = setSKey(feed);
-        Label1.setText("" + feed.MonthlyTimeSeries.get(sKeys[0]).close);
-        setGraph(feed, sKeys);
+
+        String[] sKeys =setSKey(feed);
+        ObservableList<XYChart.Series> graph = setGraph(feed, sKeys);
+        chart.setData(graph);
+        //Label1.setText("" + feed.MonthlyTimeSeries.get(sKeys[0]).close);
     }
 
     public void onError(Throwable throwable)
@@ -64,9 +68,10 @@ public class AlphaVintageController
     public String[] setSKey(AlphaVintageFeed feed)
     {
         String[] sKeys = feed.MonthlyTimeSeries.keySet().toArray(new String[0]);
+        chart.getData().add(setGraph(feed, sKeys));
         return sKeys;
     }
-    public XYChart.Series setGraph(AlphaVintageFeed feed, String[] sKeys)
+    public ObservableList<XYChart.Series> setGraph(AlphaVintageFeed feed, String[] sKeys)
     {
         //Integer.parseInt(labelTimePeriod.getText());
         int timeGiven = 3;
@@ -79,7 +84,8 @@ public class AlphaVintageController
             dY = feed.MonthlyTimeSeries.get(sKeys[points]).close;
             series.getData().add(new XYChart.Data(iX, dY));
         }
-        return series;
+        ObservableList<XYChart.Series> seriesOL = series.getData();
+        return seriesOL;
     }
 
 }

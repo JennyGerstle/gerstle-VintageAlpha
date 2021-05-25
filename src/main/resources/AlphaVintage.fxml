@@ -4,15 +4,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <Label fx:id="Label1" text="" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-    <Label fx:id="hi2" text="" GridPane.columnIndex="8" GridPane.rowIndex="5" />
-   <LineChart fx:id="chart">
-     <xAxis>
-       <CategoryAxis side="BOTTOM" />
-     </xAxis>
-     <yAxis>
-       <NumberAxis side="LEFT"/>
-     </yAxis>
-   </LineChart>
-</GridPane>
+
+<LineChart fx:id="chart" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+<xAxis>
+    <CategoryAxis side="BOTTOM" />
+</xAxis>
+<yAxis>
+    <NumberAxis side="LEFT"/>
+</yAxis>
+</LineChart>
