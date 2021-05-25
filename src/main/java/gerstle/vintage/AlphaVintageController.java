@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +16,8 @@ import java.util.Map;
 
 public class AlphaVintageController
 {
+    @FXML
+    TextField stockName;
     @FXML
     List<RadioButton> radioBTNS;
     @FXML
@@ -50,14 +53,14 @@ public class AlphaVintageController
     {
         if (radioBTNS.get(0).isSelected())
         {
-            Disposable disposable = service.getDaily()
+            Disposable disposable = service.getDaily(stockName.getText(), "4FLLHYV9D7QKWY96")
                     .subscribeOn(Schedulers.io())
                     .observeOn(Schedulers.trampoline())
                     .subscribe(this::onStockPriceAverageDaily, this::onError);
         }
         else if (radioBTNS.get(1).isSelected())
         {
-            Disposable disposable = service.getWeekly()
+            Disposable disposable = service.getWeekly(stockName.getText(), "4FLLHYV9D7QKWY96")
                     .subscribeOn(Schedulers.io())
                     .observeOn(Schedulers.trampoline())
                     .subscribe(this::onStockPriceAverageWeekly, this::onError);
@@ -65,7 +68,7 @@ public class AlphaVintageController
         else
         {
             AlphaVintageMonthlyFeed MFeed = new AlphaVintageMonthlyFeed();
-            Disposable disposable = service.getMonthly()
+            Disposable disposable = service.getMonthly(stockName.getText(), "4FLLHYV9D7QKWY96")
                     .subscribeOn(Schedulers.io())
                     .observeOn(Schedulers.trampoline())
                     .subscribe(this::onStockPriceAverageMonthly, this::onError);
